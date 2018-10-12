@@ -1,0 +1,89 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    body {
+        background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);
+        #calculator {
+            width: 300px;
+            height: 400px;
+            margin: 100px auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 15px 20px;
+            position: relative;
+            .top {
+                height: 70px;
+                #screen {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    height: 70px;
+                    width: 95%;
+                    background: rgba(0, 0, 0, 0.2);
+                    z-index: 2;
+                    float: left;
+                    margin: 3px 4px;
+                    border-radius: 5px;
+                }
+                #clear {
+                    color: rgba(0, 0, 0, 0.6);
+                    width: 56px;
+                    text-align: center;
+                    z-index: 6;
+                    float: left;
+                    position: relative;
+                    top: -1px;
+                    left: -13px;
+                    color: #aaa;
+                    font-size: 30px;
+                    cursor: pointer;
+                    text-align: center;
+                    border-radius: 50%;
+                    height: 56px;
+                    line-height: 56px;
+                    transition: all 0.6s ease-in-out;
+                }
+                #clear:hover {
+                    background: rgba(0, 0, 0, 0.1);
+                    color: white;
+                    font-size: 32px;
+                }
+            }
+            .keys {
+                overflow: auto;
+                position: relative;
+                left: 8px;
+                top: 30px;
+                margin: 0 auto;
+                .key {
+                    float: left;
+                    cursor: pointer;
+                    width: 66px;
+                    height: 56px;
+                    position: relative;
+                    top: 0px;
+                    background: rgba(0, 0, 0, 0.5);
+                    border-radius: 3px;
+                    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+                    margin: 0 7px 13px 0;
+                    color: #ccc;
+                    line-height: 56px;
+                    text-align: center;
+                    transition: all 0.2s ease;
+                }
+                .key:hover {
+                    background: rgba(255, 255, 255, 0.5);
+                    color: #333;
+                }
+                .key:active {
+                    box-shadow: 0px 5px rgba(0, 0, 0, 0.6);
+                    top: 4px;
+                }
+            }
+        }
+    }
+}
