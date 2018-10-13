@@ -28,6 +28,9 @@ html {
                     float: left;
                     margin: 3px 4px;
                     border-radius: 5px;
+                    text-align: right;
+                    line-height: 70px;
+                    font-size: 40px;
                 }
                 #clear {
                     color: rgba(0, 0, 0, 0.6);
@@ -59,6 +62,8 @@ html {
                 left: 8px;
                 top: 30px;
                 margin: 0 auto;
+                border: dashed 3px red;
+                padding-bottom: 10px;
                 .key {
                     float: left;
                     cursor: pointer;
@@ -80,7 +85,7 @@ html {
                     color: #333;
                 }
                 .key:active {
-                    box-shadow: 0px 5px rgba(0, 0, 0, 0.6);
+                    box-shadow: 0px 0px rgba(0, 0, 0, 0.6);
                     top: 4px;
                 }
             }
