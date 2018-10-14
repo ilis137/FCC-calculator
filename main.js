@@ -2,17 +2,17 @@ let operator;
 let operators = ['+', '-', '/', '*']
 let args = [];
 let buffer = '';
-let displayVal = '';
+let displayVal = '0';
 $(document).ready(function() {
+    display();
     let screen = $('#screen');
-    //  let inputVal = screen.text();
     $('#clear').click(clearInput);
     $('.key').click(getKey);
 });
 
 
 function clearInput() {
-    displayVal = '';
+    displayVal = '0';
     buffer = '';
     operator = undefined;
     args = [];
@@ -36,7 +36,14 @@ function getKey() {
     }
     operators.map(op => {
         if (op === keyValue) {
-            console.log(keyValue);
+            if (operator == displayVal[displayVal.length - 1]) {
+                operator = op;
+                displayVal = displayVal.substring(0, displayVal.length - 1) + operator;
+                opPresent = true;
+                display();
+                return;
+            }
+
             if (operator) {
                 args.push(buffer);
                 buffer = '';
@@ -57,8 +64,24 @@ function getKey() {
     });
 
     if (opPresent) return;
-    displayVal += keyValue;
-    buffer = buffer + keyValue;
+    if (keyValue == 0 && buffer == '' && operator == undefined) {
+        display();
+        return;
+    }
+    if (keyValue == '.' && buffer[buffer.length - 1] == '.') {
+        return;
+
+    }
+    if (keyValue == '.' && displayVal == '0') {
+        displayVal = displayVal + keyValue;
+        buffer = displayVal;
+    } else if (displayVal == '0') {
+        displayVal = keyValue;
+        buffer = buffer + keyValue;
+    } else {
+        displayVal += keyValue;
+        buffer = buffer + keyValue;
+    }
     display();
 
 }
@@ -70,40 +93,41 @@ function display() {
 function calculate() {
     const op = operator;
     let output = 0;
-    console.log(op);
+
     switch (op) {
         case '+':
             output = Number(args[0]) + Number(args[1]);
-            console.log(args[0]);
-            console.log(args[1]);
-            console.log(output);
+
+            if (output != Math.floor(output))
+                output = output.toFixed(4);
+
             args = [];
             args.push(output);
 
             break;
         case '-':
             output = Number(args[0]) - Number(args[1]);
-            console.log(args[0]);
-            console.log(args[1]);
-            console.log(output);
+            if (output != Math.floor(output))
+                output = output.toFixed(4);
+
             args = [];
             args.push(output);
 
             break;
         case '*':
             output = Number(args[0]) * Number(args[1]);
-            console.log(args[0]);
-            console.log(args[1]);
-            console.log(output);
+            if (output != Math.floor(output))
+                output = output.toFixed(4);
+
             args = [];
             args.push(output);
 
             break;
         case '/':
             output = Number(args[0]) / Number(args[1]);
-            console.log(args[0]);
-            console.log(args[1]);
-            console.log(output);
+            if (output != Math.floor(output))
+                output = output.toFixed(4);
+
             args = [];
             args.push(output);
 

@@ -33,6 +33,9 @@ html body #calculator .top #screen {
   text-align: right;
   line-height: 70px;
   font-size: 40px;
+  font-family: "IBM Plex Mono", monospace;
+  color: #ccc;
+  overflow: hidden;
 }
 html body #calculator .top #clear {
   color: rgba(0, 0, 0, 0.6);
@@ -50,6 +53,7 @@ html body #calculator .top #clear {
   border-radius: 50%;
   height: 56px;
   line-height: 56px;
+  font-family: "IBM Plex Mono", monospace;
   transition: all 0.6s ease-in-out;
 }
 html body #calculator .top #clear:hover {
@@ -63,7 +67,6 @@ html body #calculator .keys {
   left: 8px;
   top: 30px;
   margin: 0 auto;
-  border: dashed 3px red;
   padding-bottom: 10px;
 }
 html body #calculator .keys .key {
@@ -80,6 +83,8 @@ html body #calculator .keys .key {
   color: #ccc;
   line-height: 56px;
   text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 30px;
   transition: all 0.2s ease;
 }
 html body #calculator .keys .key:hover {
